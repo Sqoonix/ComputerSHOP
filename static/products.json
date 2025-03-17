@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1001,
+        "name": "ONE",
+        "image": "static/pc1.png",
+        "price": 76900
+    },
+    {
+        "id": 1002,
+        "name": "FURY",
+        "image": "static/pc2.png",
+        "price": 85900
+    },
+    {
+        "id": 1003,
+        "name": "WARRIOR",
+        "image": "static/pc3.png",
+        "price": 99900
+    },
+    {
+        "id": 1004,
+        "name": "CHAMPION",
+        "image": "static/pc4.png",
+        "price": 117900
+    }
+]

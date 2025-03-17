@@ -1,0 +1,322 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Темный фон, как на примере */
+    color: #ffffff; /* Белый текст */
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 10px 0;
+}
+
+.user-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    white-space: nowrap;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.user-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.user-actions a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.user-actions a:hover {
+    text-decoration: underline;
+}
+
+
+
+.hero {
+    position: relative;
+    padding: 50px 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.highlight {
+    color: #c0c0c0; /* Белый цвет для слова "Оптимальные" */
+}
+
+.hero-content {
+    position: absolute; /* Абсолютное позиционирование текста */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ширина текста растягивается по всему контейнеру */
+    display: flex; /* Используем flex для выравнивания */
+    justify-content: space-between; /* Распределяем текст по бокам */
+    z-index: 2; /* Текст поверх видео */
+}
+
+.text-right {
+    max-width: 10.5%;
+    font-size: 17px; /* Размер шрифта */
+    font-family: 'Inter', 'Rubik', sans-serif;
+    color: #c0c0c0;
+    padding: 40px 0;
+    text-align: right; /* Выравнивание текста справа */
+}
+
+.text-left {
+    font-size: 35px; /* Размер шрифта */
+    font-family: 'Inter', 'Rubik', sans-serif;
+    font-weight: 600;
+    text-align: left; /* Выравнивание текста слева */
+    padding: 20px 0;
+
+}
+
+.section-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Центрирование текста внутри блока */
+    padding: 20px 0;
+}
+
+.section-center-padding {
+    margin-top: 80px;
+    padding: 0px 0;
+}
+
+.text-middle {
+    font-size: 35px; /* Размер шрифта */
+    font-family: 'Inter', 'Rubik', sans-serif;
+    font-weight: 600;
+    width: 49%;
+}
+
+
+.promo-video {
+    width: 100%;
+    height: 100%; /* Автоматическое масштабирование высоты */
+    max-height: 700px; /* Максимальная высота */
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 15px; /* Скругление углов видео */
+    object-fit: fill;
+}
+
+
+/* Сетка */
+.pc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 20px; /* Отступы между карточками */
+    padding: 20px;
+}
+
+/* Карточка ПК */
+.pc-card {
+    background-color: #202020; /* Темный фон карточки */
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    font-family: 'Inter', 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.pc-card:hover {
+    transform: translateY(-10px);
+}
+
+.pc-card img {
+    width: 100%;
+    height: auto;
+    max-width: 338px;
+    max-height: 318px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.pc-card h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.pc-card p {
+    font-size: 15px;
+    margin: 5px 0;
+    color: #c0c0c0;
+}
+
+.pc-card .price-container {
+    margin-top: auto;
+}
+
+.pc-card .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+/* Кнопки */
+.pc-card .buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+}
+
+.pc-card button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.container .pc-card {
+    background-color: #202020;
+    border-radius: 10px;
+    /* padding: 20px; */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    font-family: 'Inter', 'Rubik', sans-serif;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.pc-card .btn-buy {
+    background-color: #00cc00;
+    color: #ffffff;
+}
+
+.pc-card .btn-details {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.pc-card button:hover {
+    opacity: 0.9;
+}
+
+.specs {
+    margin-top: 10px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Inter', 'Rubik', sans-serif;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.spec {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #333333;
+}
+
+.spec:last-child {
+    border-bottom: none;
+}
+
+.spec span {
+    color: #a9a9a9; /* Серый текст для подписи */
+    font-size: 14px;
+    text-align: left;
+    flex: 1;
+}
+
+.spec strong {
+    color: #ffcc00; /* Желтый для значений */
+    font-weight: bold;
+    flex: 1;
+    margin-right: 20px;
+}
+
+
+/* Заголовок контейнера */
+.comparison-container h2 {
+    font-size: 2em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    position: relative; /* Добавляем относительное позиционирование для заголовка */
+}
+
+.remove-btn {
+    align-self: flex-end;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.pc-card .remove-btn {
+    z-index: 1;
+}
+
+.remove-btn:hover {
+    opacity: 0.7;
+}
+
+.btn {
+    padding: 5px 10px;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #555;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
