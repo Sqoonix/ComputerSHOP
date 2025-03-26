@@ -47,7 +47,31 @@
         <section class="section-center">
             <div class="text-middle" style="width: 80%;">
                 <p style="font-size: 30px">Игровые акссесуары </p>
+                <p style="font-size: 20px"><span class="highlight">Хочешь играть как профессиональные игроки? Покупай топовые игровые девайсы!
+                Наши эксперты по геймингу помогут выбрать лучшие игровые аксессуары для максимально комфортной игры!</span></p>
             </div>
+        </section>
+        <div class="pc-grid">
+            <a href="{{ url_for('mouses') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
+                <img src="static/mouses.png" alt="mouses" width="315" height="212">
+                <h1 style="margin-top:-20px;">Игровые мыши</h1>
+            </a>
+            <a href="{{ url_for('keyboards') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
+                <img src="static/keyboards.png" alt="keyboards" width="315" height="212">
+                <h1 style="margin-top:-20px;">Клавиатуры</h1>
+            </a>
+            <a href="{{ url_for('headphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
+                <img src="static/headphones.png" alt="headphones" width="315" height="212">
+                <h1 style="margin-top:-20px;">Наушники</h1>
+            </a>
+            <a href="{{ url_for('microphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
+                <img src="static/microphones.png" alt="microphones" width="315" height="212">
+                <h1 style="margin-top:-20px;">Микрофоны</h1>
+            </a>
+        </div>
+
+        <section class="section-center section-center-padding">
+
         </section>
     </main>
     <script src="static/script.js"></script>
