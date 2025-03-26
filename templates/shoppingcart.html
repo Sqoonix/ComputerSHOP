@@ -44,6 +44,35 @@
         </div>
     </header>
     <h1 style="text-align: center; font-family: 'Inter', 'Rubik', sans-serif; margin-bottom: 20px;">Корзина</h1>
+    <main>
+        <div class="container">
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Товар</th>
+                        <th>Наличие</th>
+                        <th>Количество</th>
+                        <th>Цена</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Заполняется с помощью JS -->
+                </tbody>
+            </table>
+            <br>
+            <div class="summary">
+                <p>ИТОГО: <span class="total">0 ₽</span></p>
+            </div>
+
+            <div class="checkout">
+                <input type="text" id="promo-code" placeholder="Введите промо-код">
+                <button id="apply-promo">ПРИМЕНИТЬ</button>
+                <button>ПЕРЕЙТИ К ОФОРМЛЕНИЮ</button>
+            </div>
+        </div>
+    </main>
+    <section class="section-center section-center-padding" style="margin-top: 20px;"></section>
 
 
 <script>
