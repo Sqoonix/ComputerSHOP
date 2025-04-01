@@ -46,34 +46,101 @@
     <main class="container">
         <section class="section-center">
             <div class="text-middle" style="width: 80%;">
-                <p style="font-size: 30px">Игровые акссесуары </p>
-                <p style="font-size: 20px"><span class="highlight">Хочешь играть как профессиональные игроки? Покупай топовые игровые девайсы!
-                Наши эксперты по геймингу помогут выбрать лучшие игровые аксессуары для максимально комфортной игры!</span></p>
+                <p style="font-size: 30px">Игровые наушники</p>
+                <p style="font-size: 20px"><span class="highlight">Игровые наушники с микрофоном позволяют не отвлекаться на окружающие звуки во время гейминга,
+при этом вы можете разговаривать с другими игроками в командных турнирах.</span></p>
             </div>
         </section>
         <div class="pc-grid">
-            <a href="{{ url_for('mouses') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/mouses.png" alt="mouses" width="315" height="212">
-                <h1 style="margin-top:-20px;">Игровые мыши</h1>
-            </a>
-            <a href="{{ url_for('keyboards') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/keyboards.png" alt="keyboards" width="315" height="212">
-                <h1 style="margin-top:-20px;">Клавиатуры</h1>
-            </a>
-            <a href="{{ url_for('headphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/headphones.png" alt="headphones" width="315" height="212">
-                <h1 style="margin-top:-20px;">Наушники</h1>
-            </a>
-            <a href="{{ url_for('microphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/microphones.png" alt="microphones" width="315" height="212">
-                <h1 style="margin-top:-20px;">Микрофоны</h1>
-            </a>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='hyperx-cloud-iii-wireless.png') }}">
+                <h3>HyperX Cloud III Wireless</h3>
+                <div class="price-container">
+                    <p class="price">13 900 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 10 - 21000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='logitech-g-pro-x-2.png') }}">
+                <h3>Logitech G Pro X 2 Lightspeed</h3>
+                <div class="price-container">
+                    <p class="price">26 000 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 20 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='razerk-kraken-v3-hypersense.png') }}">
+                <h3>Razer Kraken V3 Hypersense</h3>
+                <div class="price-container">
+                    <p class="price">12 400 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 20 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='hypex-cloud-stinger-ii-wireless.png') }}">
+                <h3>HyperX Cloud Stinger II Wireless</h3>
+                <div class="price-container">
+                    <p class="price">6 000 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 10 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
         </div>
-
-        <section class="section-center section-center-padding">
-
-        </section>
+        <section class="section-center section-center-padding" style="margin-top: 20px;"></section>
     </main>
     <script src="static/script.js"></script>
+    <script>
+    </script>
 </body>
 </html>

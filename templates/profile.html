@@ -7,7 +7,114 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
 
+        table th {
+            padding: 15px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #1e1e1e;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        table td {
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        table td img {
+            margin-top: 10px;
+            width: 120px;
+            height: 112px;
+            object-fit: cover;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            background-color: #1e1e1e;
+            color: #fff;
+            border: 1px solid #555;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #333;
+        }
+
+        .remove-btn {
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 20px;
+            background: none;
+            border: none;
+        }
+
+        .summary {
+            text-align: right;
+            font-size: 18px;
+            margin-top: -40px;
+        }
+
+        .summary .total {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .checkout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .checkout input {
+            padding: 10px;
+            width: 200px;
+            margin-right: -600px;
+            border: 1px solid #333;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        .checkout button {
+            padding: 10px 20px;
+            background-color: #00ff00;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        .checkout button:hover {
+            background-color: #0f0;
+        }
+
+        table th:nth-child(1), table td:nth-child(1) {
+            width: 30%; /* Ширина для первого столбца */
+        }
+
+        table th:nth-child(2), table td:nth-child(2) {
+            width: 10%; /* Ширина для второго столбца */
+        }
+
+        table th:nth-child(3), table td:nth-child(3) {
+            width: 45%; /* Ширина для третьего столбца */
+        }
+
+        table th:nth-child(4), table td:nth-child(4) {
+            width: 20%; /* Ширина для четвертого столбца */
+        }
+
+        table th:nth-child(5), table td:nth-child(5) {
+            width: 15%; /* Ширина для пятого столбца */
+        }
     </style>
 </head>
 <body>
@@ -47,6 +154,13 @@
         </div>
     </header>
     <h1 style="text-align: center; font-family: 'Inter', 'Rubik', sans-serif; margin-bottom: 0;">Профиль</h1>
+    <main class="container" style="text-align: center; font-family: 'Inter', 'Rubik', sans-serif;">
+        <p><strong>Имя:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+        <p><strong>Дата рождения:</strong> {{ user.birth_date }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Выйти</a>
+    </main>
+    <section class="section-center section-center-padding" style="margin-top: 20px;"></section>
 
 <script src="static/script.js"></script>
 

@@ -46,34 +46,100 @@
     <main class="container">
         <section class="section-center">
             <div class="text-middle" style="width: 80%;">
-                <p style="font-size: 30px">Игровые акссесуары </p>
-                <p style="font-size: 20px"><span class="highlight">Хочешь играть как профессиональные игроки? Покупай топовые игровые девайсы!
-                Наши эксперты по геймингу помогут выбрать лучшие игровые аксессуары для максимально комфортной игры!</span></p>
+                <p style="font-size: 30px">Игровые клавиатуры </p>
+                <p style="font-size: 20px"><span class="highlight">Игровые клавиатуры – это особая компьютерная периферия, созданная для тех, кто увлекается играми. В отличие от стандартной/офисной модели, данное устройство помогают получать гораздо больше удовольствия за счёт своего красивого внешнего вида, удобства использования и применения дополнительных функций.</span></p>
             </div>
         </section>
         <div class="pc-grid">
-            <a href="{{ url_for('mouses') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/mouses.png" alt="mouses" width="315" height="212">
-                <h1 style="margin-top:-20px;">Игровые мыши</h1>
-            </a>
-            <a href="{{ url_for('keyboards') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/keyboards.png" alt="keyboards" width="315" height="212">
-                <h1 style="margin-top:-20px;">Клавиатуры</h1>
-            </a>
-            <a href="{{ url_for('headphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/headphones.png" alt="headphones" width="315" height="212">
-                <h1 style="margin-top:-20px;">Наушники</h1>
-            </a>
-            <a href="{{ url_for('microphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/microphones.png" alt="microphones" width="315" height="212">
-                <h1 style="margin-top:-20px;">Микрофоны</h1>
-            </a>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='v2protkl.png') }}">
+                <h3>Razer Deathstalker V2 Pro TKL</h3>
+                <div class="price-container">
+                    <p class="price">16 900 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Тип клавиатуры:</span> Механическая
+                    </div>
+                    <div class="spec">
+                        <span>Количество клавиш:</span> 84
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB/Wi-Fi
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='deathstalkerv2pro.png') }}">
+                <h3>Razer Deathstalker V2 Pro</h3>
+                <div class="price-container">
+                    <p class="price">18 900 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Тип клавиатуры:</span> Механическая
+                    </div>
+                    <div class="spec">
+                        <span>Количество клавиш:</span> 104
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB/Wi-Fi
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='keyroxtklnoir.png') }}">
+                <h3>Red Square Keyrox TKL Noir</h3>
+                <div class="price-container">
+                    <p class="price">5 400 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Тип клавиатуры:</span> Механическая
+                    </div>
+                    <div class="spec">
+                        <span>Количество клавиш:</span> 84
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='keyroxtklhyperion.png') }}">
+                <h3>Red Square Keyrox TKL Hyperion</h3>
+                <div class="price-container">
+                    <p class="price">6 000 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Тип клавиатуры:</span> Механическая
+                    </div>
+                    <div class="spec">
+                        <span>Количество клавиш:</span> 84
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
         </div>
-
-        <section class="section-center section-center-padding">
-
-        </section>
+        <section class="section-center section-center-padding" style="margin-top: 20px;"></section>
     </main>
     <script src="static/script.js"></script>
+    <script>
+    </script>
 </body>
 </html>

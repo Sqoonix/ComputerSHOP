@@ -46,34 +46,100 @@
     <main class="container">
         <section class="section-center">
             <div class="text-middle" style="width: 80%;">
-                <p style="font-size: 30px">Игровые акссесуары </p>
-                <p style="font-size: 20px"><span class="highlight">Хочешь играть как профессиональные игроки? Покупай топовые игровые девайсы!
-                Наши эксперты по геймингу помогут выбрать лучшие игровые аксессуары для максимально комфортной игры!</span></p>
+                <p style="font-size: 30px">Микрофоны</p>
+                <p style="font-size: 20px"><span class="highlight">Качественное звучание вашего голоса – важный параметр в игровом и профессиональном общении. У нас вы можете приобрести подходящий микрофон любого стиля, уровня чувствительности и шумоподавления.</span></p>
             </div>
         </section>
         <div class="pc-grid">
-            <a href="{{ url_for('mouses') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/mouses.png" alt="mouses" width="315" height="212">
-                <h1 style="margin-top:-20px;">Игровые мыши</h1>
-            </a>
-            <a href="{{ url_for('keyboards') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/keyboards.png" alt="keyboards" width="315" height="212">
-                <h1 style="margin-top:-20px;">Клавиатуры</h1>
-            </a>
-            <a href="{{ url_for('headphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/headphones.png" alt="headphones" width="315" height="212">
-                <h1 style="margin-top:-20px;">Наушники</h1>
-            </a>
-            <a href="{{ url_for('microphones') }}" class="pc-card" style="text-decoration: none; outline: none; color: inherit;">
-                <img src="static/microphones.png" alt="microphones" width="315" height="212">
-                <h1 style="margin-top:-20px;">Микрофоны</h1>
-            </a>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='fifine-am8.png') }}">
+                <h3>Fifine AM8</h3>
+                <div class="price-container">
+                    <p class="price">5 200 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частотный диапазон:</span> 50 - 16000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Кнопка отключения микрофона:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='hyperx-solocast.png') }}">
+                <h3>HyperX Solocast</h3>
+                <div class="price-container">
+                    <p class="price">6 000 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частотный диапазон:</span> 20 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Кнопка отключения микрофона:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='blue-yeti.png') }}">
+                <h3>Blue Yeti</h3>
+                <div class="price-container">
+                    <p class="price">9 800 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частотный диапазон:</span> 20 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Кнопка отключения микрофона:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='hyperx-quadcast-s.png') }}">
+                <h3>HyperX Quadcast S</h3>
+                <div class="price-container">
+                    <p class="price">12 000 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частотный диапазон:</span> 20 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> USB
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
         </div>
-
-        <section class="section-center section-center-padding">
-
-        </section>
+        <section class="section-center section-center-padding" style="margin-top: 20px;"></section>
     </main>
     <script src="static/script.js"></script>
+    <script>
+    </script>
 </body>
 </html>

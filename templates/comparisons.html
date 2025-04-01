@@ -44,5 +44,85 @@
         </div>
     </header>
     <h1 style="text-align: center; font-family: 'Inter', 'Rubik', sans-serif; margin-bottom: 0;">Сравнение компьютеров</h1>
+    <main class="container comparison-page">
+        <div class="comparison-grid"></div>
+        <p class="empty-message" style="display: none;">Список сравнения пуст.
+            <br>Добавьте компьютеры для сравнения.</p>
+    </main>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const currentUsername = "{{ username }}";
+    const lastUser = localStorage.getItem("lastUser");
+    if (lastUser !== currentUsername) {
+        localStorage.removeItem("comparisonList");
+        localStorage.setItem("lastUser", currentUsername);
+    }
+    const comparisonGrid = document.querySelector(".comparison-grid");
+    const compareBadge = document.querySelector(".compare-badge");
+    const emptyMessage = document.querySelector(".empty-message");
+    let comparisonList = JSON.parse(localStorage.getItem("comparisonList")) || [];
+    comparisonList.forEach((pc, index) => {
+        const pcCard = document.createElement("div");
+        pcCard.classList.add("pc-card");
+        pcCard.setAttribute("data-index", index);
+        pcCard.innerHTML = `
+            <button style="all: unset; align-self: flex-start;" class="remove-btn">&times;</button>
+            <img src="${pc.image}" alt="${pc.name}">
+            <h3>${pc.name}</h3>
+            <div style="all: unset; margin-top: 10px;" class="price-container">
+                <p class="price">${pc.price.replace(/^от\s*/i, '')}</p>
+            </div>
+            <div class="specs" style="text-align: left;">
+                ${pc.specs.map(spec => `<div class="spec">${spec}</div>`).join("")}
+            </div>
+            <div class="buttons">
+                <button class="btn-buy">Купить</button>
+            </div>
+        `;
+        comparisonGrid.appendChild(pcCard);
+    });
+    comparisonGrid.addEventListener("click", (event) => {
+        if (event.target.classList.contains("remove-btn")) {
+            const pcCard = event.target.closest(".pc-card");
+            const index = pcCard.getAttribute("data-index");
+            pcCard.remove();
+            comparisonList.splice(index, 1);
+            localStorage.setItem("comparisonList", JSON.stringify(comparisonList));
+            const cards = comparisonGrid.querySelectorAll(".pc-card");
+            cards.forEach((card, idx) => {
+                card.setAttribute("data-index", idx);
+            });
+            updateGridColumns(comparisonGrid);
+            updateComparisonCount();
+        }
+    });
+
+    function updateGridColumns(grid) {
+        const items = grid.querySelectorAll(".pc-card");
+        const columnCount = Math.min(items.length, 4);
+        grid.style.gridTemplateColumns = `repeat(${columnCount}, 1fr)`;
+    }
+    function updateComparisonCount() {
+        const comparisonList = JSON.parse(localStorage.getItem("comparisonList")) || [];
+        if (compareBadge) {
+            if (comparisonList.length > 0) {
+                compareBadge.textContent = comparisonList.length;
+                compareBadge.style.display = "inline-flex";
+            } else {
+                compareBadge.style.display = "none";
+            }
+        }
+        if (emptyMessage) {
+            if (comparisonList.length === 0) {
+                emptyMessage.style.display = "block";
+            } else {
+                emptyMessage.style.display = "none";
+            }
+        }
+    }
+    updateGridColumns(comparisonGrid);
+    updateComparisonCount();
+});
+</script>
 </body>
 </html>
