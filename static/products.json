@@ -22,5 +22,55 @@
         "name": "CHAMPION",
         "image": "static/pc4.png",
         "price": 117900
+    },
+
+    {
+        "id": 1005,
+        "name": "LEADER",
+        "image": "static/pc9.png",
+        "price": 276000
+    },
+    {
+        "id": 1006,
+        "name": "AURORA",
+        "image": "static/pc10.png",
+        "price": 455000
+    },
+    {
+        "id": 1007,
+        "name": "CYBER",
+        "image": "static/pc11.png",
+        "price": 549000
+    },
+    {
+        "id": 1008,
+        "name": "DYNAMIC",
+        "image": "static/pc12.png",
+        "price": 670900
+    },
+
+    {
+        "id": 1009,
+        "name": "DYNAMIC CONCEPT",
+        "image": "static/pc5.png",
+        "price": 1000000
+    },
+    {
+        "id": 1010,
+        "name": "EVOLVE CONCEPT",
+        "image": "static/pc6.png",
+        "price": 1200000
+    },
+    {
+        "id": 1011,
+        "name": "AURORA CONCEPT",
+        "image": "static/pc7.png",
+        "price": 1329000
+    },
+    {
+        "id": 1012,
+        "name": "TITAN CONCEPT",
+        "image": "static/pc8.png",
+        "price": 1499999
     }
 ]
