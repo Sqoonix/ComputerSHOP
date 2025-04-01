@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PC Shop</title>
+    <title>zer0 PC Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
@@ -37,92 +37,110 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.8 1.58594C9.24183 1.58594 9.6 1.94411 9.6 2.38594L9.6 11.1859C9.6 11.6278 9.24183 11.9859 8.8 11.9859C8.35817 11.9859 8 11.6278 8 11.1859L8 2.38594C8 1.94411 8.35817 1.58594 8.8 1.58594Z" fill="#F5F5F5"></path>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8078 4.00781C13.2496 4.00781 13.6078 4.36598 13.6078 4.80781L13.6078 11.2078C13.6078 11.6496 13.2496 12.0078 12.8078 12.0078C12.366 12.0078 12.0078 11.6496 12.0078 11.2078L12.0078 4.80781C12.0078 4.36598 12.366 4.00781 12.8078 4.00781Z" fill="#F5F5F5"></path>
                         </svg>
-                        <span class="compare-badge"></span>
+                        <span class="compare-badge"></span> <!-- Счетчик -->
                     </a>
                 </div>
             </div>
         </div>
     </header>
-    <h1 style="text-align: center; font-family: 'Inter', 'Rubik', sans-serif; margin-bottom: 0;">Сравнение компьютеров</h1>
-    <main class="container comparison-page">
-        <div class="comparison-grid"></div>
-        <p class="empty-message" style="display: none;">Список сравнения пуст.
-            <br>Добавьте компьютеры для сравнения.</p>
+    <main class="container">
+        <section class="section-center">
+            <div class="text-middle" style="width: 80%;">
+                <p style="font-size: 30px">Игровые наушники</p>
+                <p style="font-size: 20px"><span class="highlight">Игровые наушники с микрофоном позволяют не отвлекаться на окружающие звуки во время гейминга,
+при этом вы можете разговаривать с другими игроками в командных турнирах.</span></p>
+            </div>
+        </section>
+        <div class="pc-grid">
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='hyperx-cloud-iii-wireless.png') }}">
+                <h3>HyperX Cloud III Wireless</h3>
+                <div class="price-container">
+                    <p class="price">13 900 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 10 - 21000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='logitech-g-pro-x-2.png') }}">
+                <h3>Logitech G Pro X 2 Lightspeed</h3>
+                <div class="price-container">
+                    <p class="price">26 000 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 20 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='razerk-kraken-v3-hypersense.png') }}">
+                <h3>Razer Kraken V3 Hypersense</h3>
+                <div class="price-container">
+                    <p class="price">12 400 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 20 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+            <div class="pc-card">
+                <img src="{{ url_for('static', filename='hypex-cloud-stinger-ii-wireless.png') }}">
+                <h3>HyperX Cloud Stinger II Wireless</h3>
+                <div class="price-container">
+                    <p class="price">6 000 ₽</p>
+                </div>
+                <div class="specs">
+                    <div class="spec">
+                        <span>Частота воспроизведения:</span> 10 - 20000 Гц
+                    </div>
+                    <div class="spec">
+                        <span>Съемный микрофон:</span> Есть
+                    </div>
+                    <div class="spec">
+                        <span>Способы подключения:</span> Радиоканал
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn-buy" onclick="addToCart(this)">Купить</button>
+                </div>
+            </div>
+        </div>
+        <section class="section-center section-center-padding" style="margin-top: 20px;"></section>
     </main>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const currentUsername = "{{ username }}";
-    const lastUser = localStorage.getItem("lastUser");
-    if (lastUser !== currentUsername) {
-        localStorage.removeItem("comparisonList");
-        localStorage.setItem("lastUser", currentUsername);
-    }
-    const comparisonGrid = document.querySelector(".comparison-grid");
-    const compareBadge = document.querySelector(".compare-badge");
-    const emptyMessage = document.querySelector(".empty-message");
-    let comparisonList = JSON.parse(localStorage.getItem("comparisonList")) || [];
-    comparisonList.forEach((pc, index) => {
-        const pcCard = document.createElement("div");
-        pcCard.classList.add("pc-card");
-        pcCard.setAttribute("data-index", index);
-        pcCard.innerHTML = `
-            <button style="all: unset; align-self: flex-start;" class="remove-btn">&times;</button>
-            <img src="${pc.image}" alt="${pc.name}">
-            <h3>${pc.name}</h3>
-            <div style="all: unset; margin-top: 10px;" class="price-container">
-                <p class="price">${pc.price.replace(/^от\s*/i, '')}</p>
-            </div>
-            <div class="specs" style="text-align: left;">
-                ${pc.specs.map(spec => `<div class="spec">${spec}</div>`).join("")}
-            </div>
-            <div class="buttons">
-                <button class="btn-buy">Купить</button>
-            </div>
-        `;
-        comparisonGrid.appendChild(pcCard);
-    });
-    comparisonGrid.addEventListener("click", (event) => {
-        if (event.target.classList.contains("remove-btn")) {
-            const pcCard = event.target.closest(".pc-card");
-            const index = pcCard.getAttribute("data-index");
-            pcCard.remove();
-            comparisonList.splice(index, 1);
-            localStorage.setItem("comparisonList", JSON.stringify(comparisonList));
-            const cards = comparisonGrid.querySelectorAll(".pc-card");
-            cards.forEach((card, idx) => {
-                card.setAttribute("data-index", idx);
-            });
-            updateGridColumns(comparisonGrid);
-            updateComparisonCount();
-        }
-    });
-
-    function updateGridColumns(grid) {
-        const items = grid.querySelectorAll(".pc-card");
-        const columnCount = Math.min(items.length, 4);
-        grid.style.gridTemplateColumns = `repeat(${columnCount}, 1fr)`;
-    }
-    function updateComparisonCount() {
-        const comparisonList = JSON.parse(localStorage.getItem("comparisonList")) || [];
-        if (compareBadge) {
-            if (comparisonList.length > 0) {
-                compareBadge.textContent = comparisonList.length;
-                compareBadge.style.display = "inline-flex";
-            } else {
-                compareBadge.style.display = "none";
-            }
-        }
-        if (emptyMessage) {
-            if (comparisonList.length === 0) {
-                emptyMessage.style.display = "block";
-            } else {
-                emptyMessage.style.display = "none";
-            }
-        }
-    }
-    updateGridColumns(comparisonGrid);
-    updateComparisonCount();
-});
-</script>
+    <script src="static/script.js"></script>
+    <script>
+    </script>
 </body>
 </html>

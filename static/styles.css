@@ -308,6 +308,197 @@ header {
     opacity: 0.7;
 }
 
+/* Кнопка очистки сравнения */
+.btn-clear-comparison {
+    background-color: #ff3333;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-clear-comparison:hover {
+    background-color: #cc0000;
+}
+
+/* Контейнер для грид */
+.comparison-container {
+    width: 80%; /* 80% ширины */
+    margin: 20px auto; /* Центрирование */
+    height: auto; /* Убираем фиксированную высоту */
+}
+
+.comparison-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(var(--grid-columns, 4), 1fr); /* 4 колонки по умолчанию */
+    padding: 20px;
+}
+
+/* Элементы внутри сетки */
+.comparison-item {
+    background-color: #202020;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 20px; /* Увеличиваем внутренние отступы */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределяем содержимое по высоте */
+}
+
+/* Динамическая установка колонок */
+[data-pc="1"] .comparison-grid {
+    --grid-columns: 1;
+}
+[data-pc="2"] .comparison-grid {
+    --grid-columns: 2;
+}
+[data-pc="3"] .comparison-grid {
+    --grid-columns: 3;
+}
+[data-pc="4"] .comparison-grid {
+    --grid-columns: 4;
+}
+
+/* Дополнительные стили для изображения и текста */
+.comparison-grid img {
+    width: 100%;
+    height: auto;
+    min-width: 260px;
+    min-height: 223px;
+    max-width: 338px;
+    max-height: 318px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.comparison-item h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #ffffff;
+    position: relative; /* Добавляем относительное позиционирование для заголовка */
+}
+
+.comparison-item .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.comparison-item .specs {
+    margin-top: 10px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Inter', 'Rubik', sans-serif;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.comparison-page .pc-card:hover {
+    transform: none;
+}
+
+.comparison-page .pc-card:hover {
+    transform: none;
+}
+
+
+.compare-badge {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #c0ff01;
+    color: black;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 0 4px;
+}
+
+.comparison-link {
+    position: relative;
+    display: inline-block;
+}
+
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 10%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: 9999;
+}
+
+.empty-message {
+    display: none; /* Скрыто по умолчанию */
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 1.2rem; /* Размер шрифта */
+    color: #151515; /* Цвет текста */
+    font-weight: bold; /* Жирный шрифт */
+    margin-top: 20px; /* Отступ сверху */
+    padding: 10px; /* Отступы внутри */
+    background-color: #ffc671; /* Цвет фона */
+    border: 1px solid black; /* Легкая граница */
+    border-radius: 8px; /* Скругленные углы */
+    width: 80%; /* Ширина сообщения */
+    max-width: 400px; /* Максимальная ширина */
+    margin-left: auto; /* Центрирование по горизонтали */
+    margin-right: auto; /* Центрирование по горизонтали */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для улучшения визуала */
+}
+
+
+ table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th {
+    padding: 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #1e1e1e;
+    font-weight: bold;
+    text-align: center;
+}
+
+table td {
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+table td img {
+    margin-top: 10px;
+    max-width: 120px;
+    max-height: 112px;
+    object-fit: cover;
+}
+
 .btn {
     padding: 5px 10px;
     background-color: #1e1e1e;
@@ -320,3 +511,88 @@ header {
     background-color: #333;
 }
 
+.remove-btn {
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 20px;
+    background: none;
+    border: none;
+}
+
+.summary {
+    text-align: right;
+    font-size: 18px;
+    margin-top: -40px;
+}
+
+.summary .total {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.checkout input {
+    padding: 10px;
+    width: 200px;
+    margin-right: -600px;
+    border: 1px solid #333;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.checkout button {
+    padding: 10px 20px;
+    background-color: #00ff00;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.checkout button:hover {
+    background-color: #0f0;
+}
+
+table th:nth-child(1), table td:nth-child(1) {
+    width: 30%; /* Ширина для первого столбца */
+}
+
+table th:nth-child(2), table td:nth-child(2) {
+    width: 10%; /* Ширина для второго столбца */
+}
+
+table th:nth-child(3), table td:nth-child(3) {
+    width: 45%; /* Ширина для третьего столбца */
+}
+
+table th:nth-child(4), table td:nth-child(4) {
+    width: 20%; /* Ширина для четвертого столбца */
+}
+
+table th:nth-child(5), table td:nth-child(5) {
+    width: 15%; /* Ширина для пятого столбца */
+}
+
+.compare-badge {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #c0ff01;
+    color: black;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 0 4px;
+}

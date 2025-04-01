@@ -76,6 +76,148 @@
 
 
 <script>
+    const MAX_QUANTITY = 10;
+let discount = 0;
+let debounceTimeout = null;
+let promoCodeApplied = false;
+
+async function fetchCart() {
+    try {
+        const [cartResponse, productsResponse] = await Promise.all([
+            fetch('/api/cart'),
+            fetch('/api/products')
+        ]);
+        const cartItems = await cartResponse.json();
+        const products = await productsResponse.json();
+
+        const cartTable = document.getElementById("cart-table").querySelector("tbody");
+        cartTable.innerHTML = "";
+
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const product = products.find(p => p.id === item.product_id);
+            if (product) {
+                const originalPrice = product.price * item.quantity;
+                const discountedPrice = Math.round(originalPrice * (1 - discount));
+                total += discountedPrice;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>
+                        <img src="${product.image}" alt="${product.name}" />
+                        <div>${product.name}</div>
+                    </td>
+                    <td>Много</td>
+                    <td>
+                        <button class="btn decrease" data-id="${item.product_id}" ${item.quantity <= 1 ? "disabled" : ""}>-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button class="btn increase" data-id="${item.product_id}" ${item.quantity >= MAX_QUANTITY ? "disabled" : ""}>+</button>
+                    </td>
+                    <td>
+                        <div>
+                            <span class="discounted-price">${discountedPrice.toLocaleString()} ₽</span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="remove-btn" data-id="${item.product_id}">&times;</button>
+                    </td>
+                `;
+                cartTable.appendChild(row);
+            }
+        });
+        document.querySelector(".total").textContent = `${total.toLocaleString()} ₽`;
+
+        addCartEventListeners();
+    } catch (error) {
+        console.error("Ошибка загрузки корзины:", error);
+    }
+}
+
+async function updateCart(productId, quantityChange) {
+    if (debounceTimeout) {
+        clearTimeout(debounceTimeout);
+    }
+    debounceTimeout = setTimeout(async () => {
+        try {
+            const response = await fetch('/api/cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ product_id: productId, quantity_change: quantityChange })
+            });
+
+            if (response.ok) {
+                fetchCart();
+            } else {
+                alert("Ошибка обновления корзины.");
+            }
+        } catch (error) {
+            console.error("Ошибка обновления корзины:", error);
+        }
+    }, 300);
+}
+
+async function removeFromCart(productId) {
+    try {
+        const response = await fetch('/api/cart', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ product_id: productId })
+        });
+
+        if (response.ok) {
+            fetchCart();
+        } else {
+            alert("Ошибка удаления товара.");
+        }
+    } catch (error) {
+        console.error("Ошибка удаления товара:", error);
+    }
+}
+
+function addCartEventListeners() {
+    const cartTable = document.getElementById("cart-table");
+
+    cartTable.addEventListener("click", (event) => {
+        const button = event.target;
+
+        if (button.classList.contains("decrease")) {
+            const productId = parseInt(button.dataset.id);
+            updateCart(productId, -1);
+        }
+
+        if (button.classList.contains("increase")) {
+            const productId = parseInt(button.dataset.id);
+            updateCart(productId, 1);
+        }
+
+        if (button.classList.contains("remove-btn")) {
+            const productId = parseInt(button.dataset.id);
+            removeFromCart(productId);
+        }
+    });
+
+    document.getElementById("apply-promo").addEventListener("click", () => {
+        const promoCode = document.getElementById("promo-code").value.trim();
+
+        if (promoCode === "DISCOUNT10" && !promoCodeApplied) {
+            discount = 0.1;
+            promoCodeApplied = true;
+            alert("Промокод успешно применен! Скидка 10%.");
+        } else if (promoCode !== "DISCOUNT10") {
+            discount = 0;
+            promoCodeApplied = false;
+            alert("Неверный промокод.");
+        } else {
+            alert("Скидка уже применена.");
+        }
+
+        fetchCart();
+    });
+}
+
+document.addEventListener("DOMContentLoaded", fetchCart);
+
 </script>
 <script src="static/script.js"></script>
 
