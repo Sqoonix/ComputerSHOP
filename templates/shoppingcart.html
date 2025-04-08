@@ -76,7 +76,8 @@
 
 
 <script>
-    const MAX_QUANTITY = 10;
+let cartItemCount = 0;
+const MAX_QUANTITY = 10;
 let discount = 0;
 let debounceTimeout = null;
 let promoCodeApplied = false;
@@ -87,8 +88,11 @@ async function fetchCart() {
             fetch('/api/cart'),
             fetch('/api/products')
         ]);
+
         const cartItems = await cartResponse.json();
         const products = await productsResponse.json();
+
+        cartItemCount = cartItems.length;
 
         const cartTable = document.getElementById("cart-table").querySelector("tbody");
         cartTable.innerHTML = "";
@@ -126,13 +130,15 @@ async function fetchCart() {
                 cartTable.appendChild(row);
             }
         });
-        document.querySelector(".total").textContent = `${total.toLocaleString()} ₽`;
 
+        document.querySelector(".total").textContent = `${total.toLocaleString()} ₽`;
         addCartEventListeners();
+
     } catch (error) {
         console.error("Ошибка загрузки корзины:", error);
     }
 }
+
 
 async function updateCart(productId, quantityChange) {
     if (debounceTimeout) {
@@ -197,23 +203,32 @@ function addCartEventListeners() {
         }
     });
 
-    document.getElementById("apply-promo").addEventListener("click", () => {
-        const promoCode = document.getElementById("promo-code").value.trim();
+    if (!document.getElementById("apply-promo").dataset.bound) {
+        document.getElementById("apply-promo").addEventListener("click", () => {
+            const promoCode = document.getElementById("promo-code").value.trim();
 
-        if (promoCode === "DISCOUNT10" && !promoCodeApplied) {
-            discount = 0.1;
-            promoCodeApplied = true;
-            alert("Промокод успешно применен! Скидка 10%.");
-        } else if (promoCode !== "DISCOUNT10") {
-            discount = 0;
-            promoCodeApplied = false;
-            alert("Неверный промокод.");
-        } else {
-            alert("Скидка уже применена.");
-        }
+            if (cartItemCount === 0) {
+                alert("Корзина пуста. Добавьте товары, прежде чем применять промокод.");
+                return;
+            }
 
-        fetchCart();
-    });
+            if (promoCode === "GUMRF10" && !promoCodeApplied) {
+                discount = 0.1;
+                promoCodeApplied = true;
+                alert("Промокод успешно применен! Скидка 10%.");
+            } else if (promoCode !== "GUMRF10") {
+                discount = 0;
+                promoCodeApplied = false;
+                alert("Неверный промокод.");
+            } else {
+                alert("Скидка уже применена.");
+            }
+
+            fetchCart();
+        });
+        document.getElementById("apply-promo").dataset.bound = "true";
+    }
+
 }
 
 document.addEventListener("DOMContentLoaded", fetchCart);
