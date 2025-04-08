@@ -72,5 +72,133 @@
         "name": "TITAN CONCEPT",
         "image": "static/pc8.png",
         "price": 1499999
+    },
+
+    {
+        "id": 1013,
+        "name": "Logitech G304 Lightspeed White",
+        "image": "static/g304.png",
+        "price": 5100
+    },
+    {
+        "id": 1014,
+        "name": "HYPERPC SUPER MOUSE",
+        "image": "static/hyperpc-mouse.png",
+        "price": 7600
+    },
+    {
+        "id": 1015,
+        "name": "Razer Basilisk V3 Pro",
+        "image": "static/razer-basilisk-v3-pro.png",
+        "price": 17200
+    },
+    {
+        "id": 1016,
+        "name": "HyperX Pulsefire Surge RGB",
+        "image": "static/hyperx_pulsefire.png",
+        "price": 7300
+    },
+
+    {
+        "id": 1017,
+        "name": "Logitech G304 Lightspeed Black",
+        "image": "static/logitech-g304-black.png",
+        "price": 5100
+    },
+    {
+        "id": 1018,
+        "name": "Razer Viper V2 Pro Black",
+        "image": "static/razer-viper-v2-pro.png",
+        "price": 15400
+    },
+    {
+        "id": 1019,
+        "name": "HyperX Pulsefire Haste 2 Black",
+        "image": "static/pulsefire-haste-2.png",
+        "price": 7000
+    },
+    {
+        "id": 1020,
+        "name": "Logitech Pro X Superlight Black",
+        "image": "static/logitech-x-pro.png",
+        "price": 13499
+    },
+
+
+    {
+        "id": 1021,
+        "name": "Razer Deathstalker V2 Pro TKL",
+        "image": "static/v2protkl.png",
+        "price": 16900
+    },
+    {
+        "id": 1022,
+        "name": "Razer Deathstalker V2 Pro",
+        "image": "static/deathstalkerv2pro.png",
+        "price": 18900
+    },
+    {
+        "id": 1023,
+        "name": "Red Square Keyrox TKL Noir",
+        "image": "static/keyroxtklnoir.png",
+        "price": 5400
+    },
+    {
+        "id": 1024,
+        "name": "Red Square Keyrox TKL Hyperion",
+        "image": "static/keyroxtklhyperion.png",
+        "price": 6000
+    },
+
+
+    {
+        "id": 1025,
+        "name": "HyperX Cloud II Wireless",
+        "image": "static/hyperx-cloud-iii-wireless.png",
+        "price": 13900
+    },
+    {
+        "id": 1026,
+        "name": "Logitech G Pro X 2 Lightspeed",
+        "image": "static/logitech-g-pro-x-2.png",
+        "price": 26000
+    },
+    {
+        "id": 1027,
+        "name": "Razer Kraken V3 Hypersense",
+        "image": "static/razerk-kraken-v3-hypersense.png",
+        "price": 12400
+    },
+    {
+        "id": 1028,
+        "name": "HyperX Cloud Stinger II Wireless",
+        "image": "static/hypex-cloud-stinger-ii-wireless.png",
+        "price": 6000
+    },
+
+
+    {
+        "id": 1029,
+        "name": "Fifine AM8",
+        "image": "static/fifine-am8.png",
+        "price": 5200
+    },
+    {
+        "id": 1030,
+        "name": "HyperX Solocast",
+        "image": "static/hyperx-solocast.png",
+        "price": 6000
+    },
+    {
+        "id": 1031,
+        "name": "Blue Yeti",
+        "image": "static/blue-yeti.png",
+        "price": 9800
+    },
+    {
+        "id": 1032,
+        "name": "HyperX Quadcast S",
+        "image": "static/hyperx-quadcast-s.png",
+        "price": 12000
     }
 ]
