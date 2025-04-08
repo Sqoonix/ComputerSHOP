@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- УВЕДОМЛЕНИЕ О ПОКУПКЕ -->
+    <div id="cart-toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 12px 16px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 9999; font-family: sans-serif;">
+        <span id="cart-toast-text"></span>
+    </div>
     <header>
         <div class="container">
             <div class="user-wrap">
@@ -478,25 +482,47 @@
         </div>
         <section class="section-center section-center-padding">
         </section>
-    </main> <script src="static/script.js" defer></script>
+    </main>
+    <script src="static/script.js" defer></script>
     <script>
     async function addToCart(button) {
         const pcCard = button.closest(".pc-card");
         const productId = parseInt(pcCard.dataset.id);
+
         try {
             const response = await fetch('/api/cart', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ product_id: productId })
             });
+
             if (response.ok) {
-                alert("Товар добавлен в корзину!");
+                showToast("Товар добавлен в корзину!");
             } else {
-                alert("Ошибка добавления в корзину.");
+                showToast("Ошибка добавления в корзину.");
             }
         } catch (error) {
             console.error("Ошибка:", error);
+            showToast("Произошла ошибка.");
         }
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById("cart-toast");
+        const text = document.getElementById("cart-toast-text");
+
+        text.textContent = message;
+        toast.style.display = "block";
+        toast.style.opacity = "1";
+
+        setTimeout(() => {
+            toast.style.opacity = "0";
+        }, 2500);
+
+        setTimeout(() => {
+            toast.style.display = "none";
+            toast.style.opacity = "1"; // сброс
+        }, 3000);
     }
     </script>
 </body>

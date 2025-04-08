@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- УВЕДОМЛЕНИЕ О ПОКУПКЕ -->
+    <div id="cart-toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 12px 16px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 9999; font-family: sans-serif;">
+        <span id="cart-toast-text"></span>
+    </div>
     <header>
         <div class="container">
             <div class="user-wrap">
@@ -51,7 +55,7 @@
             </div>
         </section>
         <div class="pc-grid">
-            <div class="pc-card">
+            <div class="pc-card" data-id="1029">
                 <img src="{{ url_for('static', filename='fifine-am8.png') }}">
                 <h3>Fifine AM8</h3>
                 <div class="price-container">
@@ -72,7 +76,7 @@
                     <button class="btn-buy" onclick="addToCart(this)">Купить</button>
                 </div>
             </div>
-            <div class="pc-card">
+            <div class="pc-card" data-id="1030">
                 <img src="{{ url_for('static', filename='hyperx-solocast.png') }}">
                 <h3>HyperX Solocast</h3>
                 <div class="price-container">
@@ -93,7 +97,7 @@
                     <button class="btn-buy" onclick="addToCart(this)">Купить</button>
                 </div>
             </div>
-            <div class="pc-card">
+            <div class="pc-card" data-id="1031">
                 <img src="{{ url_for('static', filename='blue-yeti.png') }}">
                 <h3>Blue Yeti</h3>
                 <div class="price-container">
@@ -114,7 +118,7 @@
                     <button class="btn-buy" onclick="addToCart(this)">Купить</button>
                 </div>
             </div>
-            <div class="pc-card">
+            <div class="pc-card" data-id="1032">
                 <img src="{{ url_for('static', filename='hyperx-quadcast-s.png') }}">
                 <h3>HyperX Quadcast S</h3>
                 <div class="price-container">
@@ -140,6 +144,45 @@
     </main>
     <script src="static/script.js"></script>
     <script>
+    async function addToCart(button) {
+        const pcCard = button.closest(".pc-card");
+        const productId = parseInt(pcCard.dataset.id);
+
+        try {
+            const response = await fetch('/api/cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ product_id: productId })
+            });
+
+            if (response.ok) {
+                showToast("Товар добавлен в корзину!");
+            } else {
+                showToast("Ошибка добавления в корзину.");
+            }
+        } catch (error) {
+            console.error("Ошибка:", error);
+            showToast("Произошла ошибка.");
+        }
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById("cart-toast");
+        const text = document.getElementById("cart-toast-text");
+
+        text.textContent = message;
+        toast.style.display = "block";
+        toast.style.opacity = "1";
+
+        setTimeout(() => {
+            toast.style.opacity = "0";
+        }, 2500);
+
+        setTimeout(() => {
+            toast.style.display = "none";
+            toast.style.opacity = "1"; // сброс
+        }, 3000);
+    }
     </script>
 </body>
 </html>

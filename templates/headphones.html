@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- УВЕДОМЛЕНИЕ О ПОКУПКЕ -->
+    <div id="cart-toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 12px 16px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 9999; font-family: sans-serif;">
+        <span id="cart-toast-text"></span>
+    </div>
     <header>
         <div class="container">
             <div class="user-wrap">
@@ -52,7 +56,7 @@
             </div>
         </section>
         <div class="pc-grid">
-            <div class="pc-card">
+            <div class="pc-card" data-id="1025">
                 <img src="{{ url_for('static', filename='hyperx-cloud-iii-wireless.png') }}">
                 <h3>HyperX Cloud III Wireless</h3>
                 <div class="price-container">
@@ -73,7 +77,7 @@
                     <button class="btn-buy" onclick="addToCart(this)">Купить</button>
                 </div>
             </div>
-            <div class="pc-card">
+            <div class="pc-card" data-id="1026">
                 <img src="{{ url_for('static', filename='logitech-g-pro-x-2.png') }}">
                 <h3>Logitech G Pro X 2 Lightspeed</h3>
                 <div class="price-container">
@@ -94,7 +98,7 @@
                     <button class="btn-buy" onclick="addToCart(this)">Купить</button>
                 </div>
             </div>
-            <div class="pc-card">
+            <div class="pc-card" data-id="1027">
                 <img src="{{ url_for('static', filename='razerk-kraken-v3-hypersense.png') }}">
                 <h3>Razer Kraken V3 Hypersense</h3>
                 <div class="price-container">
@@ -115,7 +119,7 @@
                     <button class="btn-buy" onclick="addToCart(this)">Купить</button>
                 </div>
             </div>
-            <div class="pc-card">
+            <div class="pc-card" data-id="1028">
                 <img src="{{ url_for('static', filename='hypex-cloud-stinger-ii-wireless.png') }}">
                 <h3>HyperX Cloud Stinger II Wireless</h3>
                 <div class="price-container">
@@ -141,6 +145,45 @@
     </main>
     <script src="static/script.js"></script>
     <script>
+    async function addToCart(button) {
+        const pcCard = button.closest(".pc-card");
+        const productId = parseInt(pcCard.dataset.id);
+
+        try {
+            const response = await fetch('/api/cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ product_id: productId })
+            });
+
+            if (response.ok) {
+                showToast("Товар добавлен в корзину!");
+            } else {
+                showToast("Ошибка добавления в корзину.");
+            }
+        } catch (error) {
+            console.error("Ошибка:", error);
+            showToast("Произошла ошибка.");
+        }
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById("cart-toast");
+        const text = document.getElementById("cart-toast-text");
+
+        text.textContent = message;
+        toast.style.display = "block";
+        toast.style.opacity = "1";
+
+        setTimeout(() => {
+            toast.style.opacity = "0";
+        }, 2500);
+
+        setTimeout(() => {
+            toast.style.display = "none";
+            toast.style.opacity = "1"; // сброс
+        }, 3000);
+    }
     </script>
 </body>
 </html>
